@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Offres disponibles</title>
+  </head>
+  <body>
+    <h1>Liste des offres</h1>
+
+    {% for offre in offres %}
+    <div style="border: 1px solid #ccc; padding: 10px; margin: 10px 0">
+      <h2>{{ offre.nom_offre }}</h2>
+      <p>{{ offre.description }}</p>
+      <p>Prix : {{ offre.prix }} €</p>
+      <p>Places disponibles : {{ offre.nombre_places }}</p>
+    </div>
+    {% empty %}
+    <p>Aucune offre disponible.</p>
+    {% endfor %}
+
+    <a href="{% url 'accueil' %}">Retour à l'accueil</a>
+  </body>
+</html>
