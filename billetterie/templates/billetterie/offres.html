@@ -13,6 +13,11 @@
       <p>{{ offre.description }}</p>
       <p>Prix : {{ offre.prix }} €</p>
       <p>Places disponibles : {{ offre.nombre_places }}</p>
+
+      <form method="post" action="{% url 'ajouter_au_panier' offre.id %}">
+        {% csrf_token %}
+        <button type="submit">Réserver</button>
+      </form>
     </div>
     {% empty %}
     <p>Aucune offre disponible.</p>
